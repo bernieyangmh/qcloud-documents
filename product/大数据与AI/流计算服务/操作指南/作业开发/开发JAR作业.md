@@ -5,14 +5,13 @@
 在 [流计算 Oceanus 控制台](https://console.cloud.tencent.com/oceanus) 中选择**作业管理 > 新建作业**，在弹窗中选择作业类型、作业名称和运行集群，单击**确定**，即可在作业列表中看到新建的作业。
 ![](https://main.qcloudimg.com/raw/8e352c21f7457587d35f6b7c2c592312.png)
 
-创建 JAR 作业后，在**作业管理**中单击要进行开发的作业名称，然后单击**开发调试**，即可在草稿状态下进行作业开发。**版本管理（草稿）**后的“（草稿）”，即表示当前正处于可编辑的草稿状态下。
+创建 JAR 作业后，在**作业管理**中单击要进行开发的作业名称，然后单击**开发调试**，即可在草稿状态下进行作业开发。**版本管理（草稿）**后的“（草稿）”，即表示当前正处于可编辑的草稿状态下。 
 
 ## 开发并使用 JAR 包
 开发 JAR 作业需要先在本地开发并编译好 JAR 包，以程序包的形式上传后方可在控制台配置 JAR 作业（JAR 包上传可参考 [依赖管理](https://cloud.tencent.com/document/product/849/48295)）。在**开发调试**页面中，选择主程序包及其版本，并输入主类和主类入参，单击**作业参数**并在侧边弹出的参数界面中设置参数值，然后单击**保存**，保存作业配置和参数信息。
 
-目前流计算 Oceanus 支持运行基于开源 Flink V1.11 开发的 JAR 包，业务代码开发指南请参见 Flink 社区官方文档：[Flink DataStream API 开发指南 ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/datastream_api.html)和 [Flink Table API & SQL 开发指南](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/)。
-
-![](https://main.qcloudimg.com/raw/98f8206dc6b069d2c41ee6caf789ca53.png)
+目前流计算 Oceanus 支持运行基于开源 Flink-1.13和 Flink-1.14开发的 JAR 包，业务代码开发指南请参见 Flink 社区官方文档：[Flink DataStream API 开发指南 ](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/datastream_api.html)和 [Flink Table API & SQL 开发指南](https://ci.apache.org/projects/flink/flink-docs-release-1.11/zh/dev/table/)。
+![](https://qcloudimg.tencent-cloud.cn/raw/c166f58a7681601d43bcb5d4b7c654d2.png)
 
 ## 作业参数
 作业参数可以在**开发调试**页面中单击**作业参数**，并在侧边弹出的参数界面中设置参数值，然后单击**确定**，保存作业参数信息。下文会有各参数的详细介绍说明，以帮助您更好地配置各作业参数。

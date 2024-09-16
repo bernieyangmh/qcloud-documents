@@ -25,7 +25,7 @@ ClientConfig clientConfig = new ClientConfig();
 
 // 设置 bucket 的地域
 // COS_REGION 请参照 https://cloud.tencent.com/document/product/436/6224
-clientConfig.setRegion = new Region("COS_REGION");
+clientConfig.setRegion(new Region("COS_REGION"));
 
 // 设置生成的 url 的请求协议, http 或者 https
 // 5.6.53 及更低的版本，建议设置使用 https 协议
@@ -33,14 +33,14 @@ clientConfig.setRegion = new Region("COS_REGION");
 clientConfig.setHttpProtocol(HttpProtocol.https);
 
 // 生成cos客户端
-COSClient cosclient = new COSClient(cred, clientConfig);
+COSClient cosClient = new COSClient(cred, clientConfig);
 
 // 存储桶的命名格式为 BucketName-APPID，此处填写的存储桶名称必须为此格式
 String bucketName = "examplebucket-1250000000";
 // 对象键(Key)是对象在存储桶中的唯一标识。详情请参见 [对象键](https://cloud.tencent.com/document/product/436/13324)
 String key = "exampleobject";
 
-System.out.println(cosclient.getObjectUrl(bucketName, key));
+System.out.println(cosClient.getObjectUrl(bucketName, key));
 ```
 
 #### 参数说明

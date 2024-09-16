@@ -13,14 +13,13 @@
 ## 前提条件
 您已经购买 Web 应用防火墙套餐，完成防护域名添加，域名处于正常防护状态，并且完成域名 BOT 检测功能开通。
 >?
->- 对抗当前处于灰度阶段，如需试用请 [联系我们](https://cloud.tencent.com/act/event/connect-service) 进行开通。在灰度期间您可以免费使用，正式发布后，将按官网公布刊例价正常收取费用。
 >- 在 CLBWAF 实例添加的域名，暂时不支持开通前端对抗。
 >- 在 SAASWAF 实例添加的泛域名，暂时不支持开通前端对抗。
 >- 在SAASWAF 开启 HTTP2.0 协议的域名，暂不支持使用前端对抗。
 
 ## 操作步骤
 ### 步骤1：进入前端对抗设置页面
-1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/waf/overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，单击【防护设置】进入防护设置页面。
+1. 登录 [Web 应用防火墙（WAF）控制台](https://console.cloud.tencent.com/guanjia/tea-overview)，在左侧导航栏中，选择【BOT 行为管理】>【BOT 防护设置】，单击【防护设置】进入防护设置页面。
  ![](https://main.qcloudimg.com/raw/fb2cd4593d6740e41ddaf47b051067c4.png)
 2. 在防护设置页面，选择【前端对抗】进入默认设置页面。
    - **防护开关：**默认为关闭。开启后 WAF 将对域名指定的页面进行前端对抗安全防护，识别客户端请求中可能存在爬虫行为，可以对识别为爬虫行为的请求采取不同处置动作。APP 和小程序暂不适用该策略。

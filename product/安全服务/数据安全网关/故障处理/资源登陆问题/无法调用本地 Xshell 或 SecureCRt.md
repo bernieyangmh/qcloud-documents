@@ -4,9 +4,10 @@
 ## 可能原因
 工具未安装在程序的默认目录C:\Program Files 或者 C:\Program Files (x86)，导致 BHLoader 无法直接拉起工具。
 
-
 ## 解决思路
 重新安装 Xshell 或 SecureCRT，使用默认路径安装，或手动选择工具路径。
+
+
 
 ## 处理步骤
 1. 重新安装 Xshell 或 SecureCRT，安装路径选择默认目录：C:\Program Files 或者 C:\Program Files (x86)。

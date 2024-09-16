@@ -10,7 +10,7 @@
 2. 在 CLB 实例列表页面左上角选择地域，在实例列表右侧的操作列中单击**配置监听器**。
 ![](https://qcloudimg.tencent-cloud.cn/raw/2c0b7f73cd81582c7ace11dbfe7d6c18.png)
 3. 在 HTTP/HTTPS 监听器下，单击**新建**，在弹出的“创建监听器”对话框中配置 HTTPS 监听器。
-**a. 创建监听器**
+**1. 创建监听器**
 <table>
 <thead>
 <tr>
@@ -32,7 +32,10 @@
 </tr>
 <tr>
 <td>启用长连接</td>
-<td>启用后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通 `100.127.0.0/16`。</td>
+<td>开启后，CLB 与后端服务之间使用长连接，CLB 不再透传源 IP，请从 XFF 中获取源 IP。为保证正常转发，请在 CLB 上打开安全组默认放通或者在 CVM 的安全组上放通100.127.0.0/16。
+<dx-alert infotype="explain" title="">
+开启后，CLB 与后端服务的连接数范围在请求[QPS, QPS*60]区间波动，具体数值取决于连接复用率。若后端服务对连接数上限有限制，则建议谨慎开启。此功能目前处于内测中，如需使用，请提交 [内测申请](https://cloud.tencent.com/apply/p/tsodp6qm21)。
+</dx-alert></td>
 <td><span>选择已有证书</span></td>
 </tr>
 <tr>
@@ -43,16 +46,24 @@
 <tr>
 <td>SSL 解析方式</td>
 <td>支持单向认证和双向认证。负载均衡器代理了 SSL 加解密的开销，保证访问安全。</td>
-<td><span>单向认证</span></td>
+<td>双向认证</td>
 </tr>
 <tr>
 <td>服务器证书</td>
-<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或上传证书。</td>
-<td><span>单向认证</span></td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。服务器证书支持配置双证书，即两种不同类型的加密算法的证书。
+<dx-alert infotype="explain" title="">
+配置双证书，仅负载均衡支持，传统型负载均衡不支持，并且配置双证后，不支持开启 QUIC 功能。
+</dx-alert>
+</td>
+<td><span>选择已有</span></td>
+</tr>
+<td>CA 证书</td>
+<td>可以选择 <a href="https://console.cloud.tencent.com/ssl">SSL 证书平台</a> 中已有的证书，或新建上传证书。</td>
+<td><span>选择已有</span></td>
 </tr>
 </tbody>
 </table>
- <b>b. 创建转发规则</b>
+ <b>2. 创建转发规则</b>
  <table>
 <tr>
 <th>转发规则基本配置</th>
@@ -66,7 +77,7 @@
 </tr>
 <tr>
 <td>默认域名</td>
-<td><li>当监听器中所有域名均没有匹配成功时，系统会将请求指向默认访问域名，让默认访问可控。</li><li>一个监听器下仅能配置一个默认域名。</li></td>
+<td><ul><li>当监听器中所有域名均没有匹配成功时，系统会将请求指向默认访问域名，让默认访问可控。</li><li>一个监听器下仅能配置一个默认域名。</li></ul></td>
 <td>开启</td>
 </tr>
 <tr>
@@ -86,7 +97,7 @@
 </tr>
 <tr>
 <td>后端协议</td>
-<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li></ul></td>
+<td>后端协议是指 CLB 与后端服务之间的协议：<ul style="margin-bottom:0px;"> <li>后端协议选择 HTTP 时，后端服务需部署 HTTP 服务。</li><li>后端协议选中 HTTPS 时，后端服务需部署 HTTPS 服务，HTTPS 服务的加解密会让后端服务消耗更多资源。</li><li>后端协议选中 gRPC 时，后端服务需部署 gRPC 服务。仅 HTTP2.0 开启且 QUIC 关闭的情况下，后端转发协议支持选择 gRPC。</li></ul></td>
 <td>HTTP</td>
 </tr>
 <tr>
@@ -100,9 +111,9 @@
 <td>已开启</td>
 </tr>
 </table>
- <b>c. 健康检查</b>
+ <b>3. 健康检查</b>
 健康检查详情请参见 <a href="https://cloud.tencent.com/document/product/214/50011#https">HTTPS 健康检查</a>。</br> 
- <b>b. 会话保持</b>
+ <b>4. 会话保持</b>
 <table>
 <tr>
 <th>会话保持配置</th>
@@ -122,10 +133,10 @@
 </table>
 
 
-### 步骤二：绑定后端云服务器
+### 步骤二：绑定后端服务器
 1. 在“监听器管理”页面，单击刚才创建的监听器，如上述 `HTTPS:443` 监听器，单击左侧的 **+** 展开域名和 URL 路径，选中具体的 URL 路径，即可在监听器右侧查看该路径上已绑定的后端服务。
 2. 单击**绑定**，在弹出框中选择需绑定的后端服务器，并配置服务端口和权重。
->? 默认端口功能：先填写“默认端口”，再选择云服务器后，每台云服务器的端口均为默认端口。
+>? 默认端口功能：先填写“默认端口”，再选择后端服务器后，每台后端服务器的端口均为默认端口。
 >
 
 ### 步骤三：安全组（可选）

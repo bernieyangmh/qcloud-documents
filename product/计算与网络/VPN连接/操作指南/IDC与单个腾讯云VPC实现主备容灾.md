@@ -29,14 +29,54 @@
 2. 在左侧目录中选择 **VPN 连接** > **VPN 网关**，进入管理页。
 3. 在 VPN 网关管理页面，单击**+新建**。
 4. 在弹出的**新建 VPN 网关**对话框中，配置如下网关参数。
-<img src="https://main.qcloudimg.com/raw/6b4bd438cf832055bcfc355896ec5382.png" width="70%"></br>
-  - 网关名称：填写自定义网关名称。
-  - 关联网络：选择创建好的 VPC 网络。
-  - 带宽上限：依据实际需求选择带宽。
-  - 计费方式：按需选择计费方式，本示例中以按量计费为例。
-  其他可选不配置或者保持默认即可。
+![](https://qcloudimg.tencent-cloud.cn/raw/73ac6ea178e7f7f4fefa032d07fbcb28.png)	
+<table>
+<tr>
+<th>参数名称</th>
+<th>参数说明</th>
+</tr>
+<tr>
+<td>网关名称</td>
+<td>填写 VPN 网关名称，不超过60个字符。</td>
+</tr>
+<tr>
+<td>所在地域</td>
+<td>展示 VPN 网关所在地域。</td>
+</tr>
+<tr>
+<td>可用区</td>
+<td>选择当前网关所在的可用区。</td>
+</tr>
+<tr>
+<td>协议类型</td>
+<td>支持 IPSec 和 SSL 两种协议类型。</td>
+</tr>
+<tr>
+<td>带宽上限</td>
+<td> 请根据业务实际情况，合理设置 VPN 网关带宽上限。
+</td>
+</tr>
+<tr>
+<td>关联网络</td>
+<td>此处选择私有网络。</td>
+</tr>
+<tr>
+<td>所属网络</td>
+<td>仅当关联网络为<b>私有网络</b>时，此处需要选择 VPN 网关将要关联的具体私有网络。</td>
+</tr>
+<tr>
+<td>标签</td>
+<td>标签是对 VPN 网关资源的标识，目的是为了方便更快速的查询和管理 VPN 网关资源，非必选配置，您可按需定义。</td>
+</tr>
+<tr>
+<td>计费方式</td>
+<td>支持按流量计费和包年包月。按流量计费适用于带宽波动较大的场景；包年包月适用于带宽较稳定的场景。</td>
+</tr>
+</table>
 5. 完成网关参数设置后，单击**创建**启动 VPN 网关的创建。
  此时**状态**为**创建中**，等待约1～2分钟，创建成功的 VPN 网关状态为**运行中**，系统为 VPN 网关分配一个公网 IP。
+
+
 
 ### 步骤二：[创建对端网关](id:step02)
 
@@ -59,13 +99,12 @@ VPN 网关和对端网关创建完成后，需要创建两条 VPN 网关与 IDC 
 #### 创建主用通道 B
 1. 在左侧导航栏选择 **VPN 连接** > **VPN 通道**。
 2. 在 **VPN 通道**管理页面，选择地域，单击**+新建**。
-3. 在弹出的页面中填写 VPN 通道信息，具体参数配置请参考[ 新建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。SPD 策略配置时，“对端网段”配置为`0.0.0.0/0`。
- ![](https://main.qcloudimg.com/raw/19853156932e77dc4c28fc5b4b2fad9e.png)
+3. 在弹出的页面中填写 VPN 通道信息，具体参数配置请参考[ 新建 VPN 通道](https://cloud.tencent.com/document/product/554/52864)。通信模式选择“目的路由”。
 4. 单击**创建**。
 
 
 #### 创建备用通道 C
-重复主用通道 A 的创建步骤1 ～ 步骤4，其中 SPD 策略配置时，“对端网段”配置为`0.0.0.0/0`。 
+重复主用通道 B 的创建步骤1 ～ 步骤4，通信模式选择“目的路由”。 
 
 ### 步骤四：IDC 侧配置
 完成前三步骤后，腾讯云上 VPN 网关和 VPN 通道的配置已经完成，需要继续在 IDC 侧的**本地网关**上配置另一侧的 VPN 通道信息，具体请参考 [本地网关配置](https://cloud.tencent.com/document/product/554/56361)。IDC 侧的“本地网关”即为 IDC 侧的 IPsec VPN 设备，该设备的公网 IP 记录在<a href="#step02"> 步骤二 </a>的“对端网关”中。
@@ -111,7 +150,7 @@ VPN 网关路由配置完成后，为 VPN 通道健康检查（主备通道均�
 #### 主用通道 B 健康检查配置
 1. 在左侧导航栏选择 **VPN 连接** > **VPN 通道**，并在右侧 VPN 通道列表中找到创建好的 VPN 通道，然后单击 VPN 通道名称。 
 2. 在通道**基本信息**页签单击**编辑**。
-<img src="https://main.qcloudimg.com/raw/cb1d19f0102c832264a7531d52e54c9f.png" width="50%">
+<img src="https://qcloudimg.tencent-cloud.cn/raw/829e118702943254dab508a0bacde474.png" width="50%">
 3. 打开健康检查开关，输入**健康检查本端地址**和**健康检查对端地址**，并单击**保存**。
 <img src="https://main.qcloudimg.com/raw/d4973cf03855b2b2dd85e46b0c2fa451.png" width="50%">
 >?
@@ -129,10 +168,12 @@ VPN 网关路由配置完成后，为 VPN 通道健康检查（主备通道均�
 2. 在左侧目录中单击**子网**，选择对应的地域和私有网络，单击子网所关联的路由表 ID，进入详情页。
 ![](https://main.qcloudimg.com/raw/a1a027602e2e65914120a8ce0c3e1b51.png)
 3. 单击**+新增路由策略**。
-![](https://main.qcloudimg.com/raw/60984e42e4e2b0ae9b7c5d64c422fc54.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/4698fe91c8a79e023f392d7720943799.png)
 4. 在弹出框中，输入目的端网段，下一跳类型选择**VPN 网关**，下一跳选择刚创建的 VPN 网关，单击**创建**即可。
-![](https://qcloudimg.tencent-cloud.cn/raw/e80d882e94f5e38d537307d3ff3042d9.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/71222da911eb728d035157ac350600fd.png)
 
 ### 步骤八：激活 VPN 通道
 使用 VPC 内的云服务器 ping 对端网段中的 IP，以激活 VPN 隧道，可以 ping 通表示 VPC 和 IDC 可以正常通信。
 当 VPN 路由表中探测 VPN 主用通道 B 路由不可达时，系统自动将流量切换至 VPN 通道 C，确保业务的高可用性。
+
+

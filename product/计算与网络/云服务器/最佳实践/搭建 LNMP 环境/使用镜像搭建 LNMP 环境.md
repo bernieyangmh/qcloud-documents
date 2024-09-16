@@ -48,7 +48,7 @@ LNMP 环境是指在 Linux 系统下，由 Nginx+MySQL+PHP 搭建的网站服务
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/aeff0a3a2401527d488fb582cb121e2b.png)
 2. 在本地浏览器中访问如下地址，查看环境配置是否成功。
-```
+```shellsession
 http://云服务器实例的公网 IP/phpinfo.php
 ```
 页面显示如下，则说明环境配置成功。
@@ -61,7 +61,5 @@ http://云服务器实例的公网 IP/phpinfo.php
 如果您在搭建 LNMP 环境的过程中遇到问题，可参考以下文档进行分析并解决问题：
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
-
-
 
 

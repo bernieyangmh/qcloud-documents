@@ -20,7 +20,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/1199/41708">找回公网 IP 地址</a></td>
-<td>若您误操作释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td>
+<td>若您操作失误释放或退还了公网 IP 地址（包含弹性公网 IP 和普通公网 IP），可以在弹性公网 IP 控制台找回，找回后的公网 IP 为弹性公网 IP。</td>
 </tr>
 <tr>
 <td rowspan="3">绑定 EIP</td>
@@ -65,7 +65,7 @@
 </tr>
 <tr>
 <td><a href="https://cloud.tencent.com/document/product/1199/62617">设置 ALG 功能</a></td>
-<td>弹性公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。</td>
+<td>公网 IP 支持针对 FTP 和 SIP 协议设置 ALG 功能。开启 ALG 功能后，则可对指定协议的应用层数据载荷进行 NAT 穿透。</td>
 </tr>
 <tr>
 <td rowspan="2">解绑/释放 EIP</td>
@@ -76,4 +76,3 @@
 <td><a href="https://cloud.tencent.com/document/product/1199/41704">释放 EIP</a></td>
 <td>若您不再使用弹性公网 IP，可在控制台将其释放。</td></tr>
 </table>
-

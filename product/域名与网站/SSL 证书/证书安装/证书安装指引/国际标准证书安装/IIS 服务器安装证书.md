@@ -13,11 +13,10 @@
 1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
 2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **IIS**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com.iis` 文件夹：
- - 文件夹名称： `cloud.tencent.com.iis`
- - 文件夹内容：
-    - `cloud.tencent.com.key` 密钥文件
-    - `cloud.tencent.com.pfx` 证书文件
-    - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
+   - **文件夹名称**： `cloud.tencent.com.iis`
+   - **文件夹内容**：
+     - `cloud.tencent.com.pfx` 证书文件
+     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
 3. 打开 IIS 服务管理器，选择计算机名称，双击打开 “服务器证书”。如下图所示：
 ![](https://main.qcloudimg.com/raw/f81cfa90c5bed2470837ab1e04dd029e.png)
 4. 在服务器证书窗口的右侧 “操作” 栏中，单击**导入**。如下图所示：
@@ -36,6 +35,14 @@
 ![](https://main.qcloudimg.com/raw/ba1575aa633cd1d6960aa5ffe510af57.png)
 9. 添加完成后，即可在 “网站绑定” 窗口中查看到新添加的内容。
 10. 请使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+     - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+     - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+     - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+     - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+     - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
 
 ### HTTP 自动跳转 HTTPS 的安全配置（可选）
 

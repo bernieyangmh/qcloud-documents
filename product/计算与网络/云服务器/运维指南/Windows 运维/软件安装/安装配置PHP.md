@@ -18,7 +18,7 @@
 </dx-alert>
 
 
-1. 在云服务器中，双击 `php-xxxxx.msi` 打开 PHP 安装包。
+1. 在云服务器中使用浏览器，访问 `https://www.php.net/`链接并下载安装包， 打开 PHP 安装包。
 2. 按照安装界面的指引，单击 **Next**。
 3. 在 “Web Server Setup” 界面，选择 **IIS FastCGI**，单击 **Next**。如下图所示：
 ![](https://main.qcloudimg.com/raw/c5fc89547b020e6ec943732d16186a7b.png)
@@ -53,8 +53,8 @@ PHP 5.3 版本后取消了安装包模式，仅通过 zip 文件和 debug pack �
 PHP 安装包对应需下载和安装的 Visual C++ Redistributable 安装包如下表所示：
 <table>
 <tr><th>PHP 安装包名</th><th>Visual C++ Redistributable 安装包下载地址</th></tr>
-<tr><td>php-x.x.x-nts-Win32-VC16-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2019</a> x86版本</td></tr>
-<tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://visualstudio.microsoft.com/zh-hans/vs/older-downloads/">Microsoft Visual C++ Redistributable for Visual Studio 2017</a> x86版本</td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC16-x86.zip</td><td><a href="https://aka.ms/vs/16/release/VC_redist.x86.exe">Microsoft Visual C++ Redistributable for Visual Studio 2019</a> x86版本</td></tr>
+<tr><td>php-x.x.x-nts-Win32-VC15-x86.zip</td><td><a href="https://go.microsoft.com/fwlink/?LinkId=746571">Microsoft Visual C++ Redistributable for Visual Studio 2017</a> x86版本</td></tr>
 <tr><td>php-x.x.x-nts-Win32-VC14-x86.zip</td><td><a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=48145">Microsoft Visual C++ Redistributable for Visual Studio 2015</a> x86版本</td></tr>
 </table>
  例如，下载的 PHP 安装包名称为 <code>PHP-7.1.30-nts-Win32-VC14-x86.zip</code>，则需下载和安装 Microsoft Visual C++ Redistributable for Visual Studio 2015 x86版本的安装包。
@@ -104,4 +104,3 @@ phpinfo();
 21. 在操作系统界面，打开浏览器并访问 `http://localhost/index.php`，查看环境配置是否成功。
 如果打开的页面如下显示，则表示配置成功：
 ![](https://main.qcloudimg.com/raw/ccd08fd9af6afe4ee2c3bf38f9e581b9.png)
-

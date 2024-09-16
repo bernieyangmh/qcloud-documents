@@ -1,3 +1,4 @@
+
 您可以使用标准的 SQL 客户端，通过内网地址或外网地址连接到云数据库 PostgreSQL。
 - **内网连接**：使用云服务器 CVM 访问自动分配给云数据库的内网地址，这种连接方式使用内网高速网络，延迟低。CVM 和数据库须是同一账号，且同一个[ VPC](https://cloud.tencent.com/document/product/215/20046) 内（保障同一个地域），或同在基础网络内。
 >?对于不同的 VPC 下（包括同账号/不同账号，同地域/不同地域）的 CVM 和数据库，内网连接方式请参见 [对等连接](https://cloud.tencent.com/document/product/553/18827)。
@@ -33,7 +34,7 @@ psql -U 用户名 -h 访问地址 -p 端口 -d postgres
 
 ### [附录：开启外网访问地址](id:kqww)
 1. 登录 [PostgreSQL 控制台](https://console.cloud.tencent.com/pgsql)，在实例列表，单击实例 ID 或**操作**列的**管理**，进入实例详情页面。
-2. 在实例详情页的**基本信息**里找到**外网地址**，单击**开通**。
-![](https://main.qcloudimg.com/raw/9ca9cd47bbf25fbbf8af012cafcdcfdf.png)
+2. 在实例详情页的**基本信息**里找到**外网IPv4地址**，单击**开启**。
+![](https://qcloudimg.tencent-cloud.cn/raw/b1d504b6e03290b78ec28f5b4df1b9ab.png)
 3. 在弹出的对话框，单击**确定**后，外网开通进入处理状态。
 4. 开启成功后，即可在基本信息中查看到外网地址。

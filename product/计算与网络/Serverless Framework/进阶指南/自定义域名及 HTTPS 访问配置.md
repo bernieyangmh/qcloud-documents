@@ -1,5 +1,5 @@
 ## 操作场景
-通过 Serverless Component 快速构建一个 Serverless Web 网站服务后，如果您希望配置自定义域名及支持 HTTPS 的访问，则可以按照本文提供的两种方案快速配置。 
+通过 Serverless Component 快速构建一个 Serverless Web 网站服务后，如果您希望配置自定义域名及支持 HTTPS 的访问，则可以按照本文提供的两种方案快速配置。  
 
 ## 前提条件
 - 已经部署了网站服务，获取了 COS/API 网关的网站托管地址。具体部署方法参考 [部署 Vue.js+Express.js 全栈应用](https://cloud.tencent.com/document/product/1154/39272) 或 [快速部署 Hexo 博客](https://cloud.tencent.com/document/product/1154/40217)。
@@ -45,13 +45,13 @@ inputs:
 [查看完整配置项说明 >>](https://github.com/serverless-components/tencent-website/blob/master/docs/configure.md)
 
 ### 部署服务
-再次通过 `sls deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
+再次通过 `scf deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
->?`sls` 是 `serverless` 命令的简写。
+>?`scf` 是 `serverless-cloud-framework` 命令的简写。
 
 ```bash
-$ sls deploy 
+$ scf deploy 
   
     myWebsite: 
       url:  https://my-hexo-bucket-1250000000.cos-website.ap-guangzhou.myqcloud.com
@@ -97,12 +97,12 @@ inputs:
 ```
 [查看完整配置项说明 >>](https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md)
 ### 部署服务
-再次通过 `sls deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
+再次通过 `scf deploy` 命令进行部署，并可以添加 `--debug` 参数查看部署过程中的信息。
 如您的账号未 [登录](https://cloud.tencent.com/login) 或 [注册](https://cloud.tencent.com/register) 腾讯云，您可以直接通过**微信**扫描命令行中的二维码进行授权登录和注册。
->? `sls` 是 `serverless` 命令的简写。
+>? `scf` 是 `serverless` 命令的简写。
 
 ```bash
-$ sls deploy 
+$ scf deploy 
     restApi: 
       protocols: 
         - http

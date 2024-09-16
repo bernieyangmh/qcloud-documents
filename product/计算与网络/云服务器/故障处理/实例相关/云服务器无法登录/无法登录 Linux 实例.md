@@ -41,7 +41,7 @@
 ## 故障处理
 ### 通过 VNC 方式登录[](id:VNC)
 
-当您无法通过标准方式（Webshell）或者远程登录软件登录 Linux 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
+当您无法通过标准方式（orcaterm）或者远程登录软件登录 Linux 实例时，您可以使用腾讯云 VNC 登录的方式登录，帮助您定位故障原因。
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)。
 2. 在实例的管理页面，选择您需要登录的实例，单击**登录**。如下图所示：
 ![](https://main.qcloudimg.com/raw/b7f0594ddecad128707ee720502e10b0.png)
@@ -56,8 +56,8 @@
 **故障现象**：[使用 SSH 登录 Linux 实例](https://cloud.tencent.com/document/product/213/35700) 时，提示无法连接或者连接失败。
 **处理步骤**：参考 [无法通过 SSH 方式登录 Linux 实例](https://cloud.tencent.com/document/product/213/37925) 进行排查。
 
-<span id="CryptographicProblem"></span>
-### 密码问题导致无法登录
+
+### 密码问题导致无法登录[](id:CryptographicProblem)
 **故障现象**：密码输入错误、忘记密码或者密码重置失败导致登录不成功。
 **解决方法**：请在 [腾讯云控制台](https://console.cloud.tencent.com/cvm/index) 重置该实例的密码，并重启实例。
 **处理步骤**：重置实例密码的方法请参考 [重置实例密码](https://cloud.tencent.com/document/product/213/16566)。
@@ -71,7 +71,7 @@
 
 
 ### 服务器高负载[](id:HighServerLoad)
-**故障现象**：通过自助检查工具或者云监控，显示服务器 CPU 负载过高导致系统无法进行远程连接或者访问非常卡。
+**故障现象**：通过自助检查工具或者腾讯云可观测平台，显示服务器 CPU 负载过高导致系统无法进行远程连接或者访问非常卡。
 **可能原因**：病毒木马、第三方杀毒软件、应用程序异常、驱动异常或者软件后台的自动更新，会造成 CPU 占用率高，导致登录不上云服务器或者访问慢的问题。
 **处理步骤**：
 1. 通过 [VNC 登录](#VNC) 登录实例。
@@ -89,5 +89,4 @@
 
 
 ## 其他解决方案
-通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213
-) 进行反馈。
+通过上述排查后，仍然不能连接 Linux 实例，请您保存自助诊断结果，通过 [在线支持](https://cloud.tencent.com/online-service?from=doc_213) 进行反馈。

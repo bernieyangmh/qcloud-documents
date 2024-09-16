@@ -49,12 +49,13 @@ coscmd probe -n 1 -s 20
 ```
 返回类似如下结果，分别得出平均速率（Average），最低速率（Min），最高速率（Max）。
 ![](https://main.qcloudimg.com/raw/2fcecb96df04acc6b0c32c120ccb3c39.png)
+>!请先安装 COSCMD 工具，安装完成后，通过命令行工具执行命令即可。详情可参见 [COSCMD 工具。](https://cloud.tencent.com/document/product/436/10976)
 5. 通过浏览器访问 [测速网](https://www.speedtest.cn/)，并结合 [步骤4](#step04) 检查客户端的网络带宽占用率是否达到上限。
  - 如果步骤4的速率低于客户端带宽速率，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
  - 如果步骤4的速率等于客户端带宽速率，且未达到运营商承诺的带宽，请联系运营商客服。
  - 如果步骤4的速率等于客户端带宽速率，且达到了运营商承诺的带宽，请执行 [步骤6](#step06)。
 6. <span id="step06"></span>检查是否存在国内客户端访问海外节点 bucket，或者存在海外客户端访问国内节点 bucket。
- - 是，建议使用 COS 的全球加速功能。详情请参阅 [腾讯云COS全球加速让全球用户加速访问](https://cloud.tencent.com/developer/article/1667036) 和 [利用COS全球加速的高效率传输实践](https://cloud.tencent.com/developer/article/1768085)。
+ - 是，建议使用 COS 的全球加速功能。详情请参阅 [腾讯云 COS 全球加速让全球用户加速访问](https://cloud.tencent.com/developer/article/1667036) 和 [利用 COS 全球加速的高效率传输实践](https://cloud.tencent.com/developer/article/1768085)。
  - 否，请 [联系我们](https://cloud.tencent.com/document/product/436/37708)。
 
 <span id="ModifyCustomDomainNameResolution"></span>
@@ -90,3 +91,4 @@ CosXmlConfig config = new CosXmlConfig.Builder()
 .SetDebugLog(true) .Build(); //创建 CosXmlConfig 对象
 ```
 其他 SDK 调用请参见 [SDK 概览](https://cloud.tencent.com/document/product/436/6474)。
+

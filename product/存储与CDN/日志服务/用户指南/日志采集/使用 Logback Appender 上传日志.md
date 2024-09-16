@@ -25,17 +25,17 @@ Logback 是 Apache 的一个开源项目。通过使用 Logback，我们可以�
 <dependency>
     <groupId>com.tencentcloudapi.cls</groupId>
     <artifactId>tencentcloud-cls-logback-appender</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.3</version>
 </dependency>
 ```
 
 ### 修改 logback 配置文件
 ```
-  <appender name="LoghubAppender" class="com.tencentcloud.cls.LoghubAppender">
+  <appender name="LoghubAppender" class="com.tencentcloudapi.cls.LoghubAppender">
         <!--必选项-->
-        <endpoint>ap-guangzhou.cls.tencentcs.com</endpoint>
-        <accessKeyId>${accesskey}</accessKeyId>
-        <accessKeySecret>${accessKeySecret}</accessKeySecret>
+        <endpoint><region>.cls.tencentcs.com</endpoint>
+        <accessKeyId>${SecretID}</SecretID>
+        <accessKeySecret>${SecretKey}</SecretKey>
         <topicId>${topicId}</topicId>
 
         <!-- 可选项 详见 '参数说明'-->

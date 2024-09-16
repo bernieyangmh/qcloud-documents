@@ -14,12 +14,11 @@
 1. 请在 [SSL 证书管理控制台](https://console.cloud.tencent.com/ssl) 中选择您需要安装的证书并单击**下载**。
 2. 在弹出的 “证书下载” 窗口中，服务器类型选择 **JKS**，单击**下载**并解压缩 `cloud.tencent.com` 证书文件包到本地目录。
 解压缩后，可获得相关类型的证书文件。其中包含 `cloud.tencent.com_jks` 文件夹：
- - 文件夹名称：`cloud.tencent.com_jks`
- - 文件夹内容：
-    - `cloud.tencent.com.jks` 证书文件
-    - `cloud.tencent.com.key` 私钥文件
-    - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
-  
+   - 文件夹名称：`cloud.tencent.com_jks`
+   - 文件夹内容：
+     - `cloud.tencent.com.jks` 证书文件
+     - `keystorePass.txt` 密码文件（若已设置私钥密码，则无 `keystorePass.txt` 密码文件）
+     
 >?
 >- 当您申请 SSL 证书时选择了 “粘贴 CSR” 方式，或者购买的品牌证书为 Wotrus，则不提供 JKS 证书文件的下载，需要您通过手动转换格式的方式生成密钥库。操作方法如下：访问 [转换工具](https://myssl.com/cert_convert.html)。
 >- 未提供 JKS 证书文件的情况下，您可以将 Nginx 文件夹中的证书文件和私钥文件上传至 “转换工具” 中，并填写密钥库密码，单击**提交**，即可转换为 jks 格式证书。
@@ -59,4 +58,12 @@
 11. 修改内容后，单击**保存**，即可自动激活，不需要进行重启。如下图所示：
 ![](https://main.qcloudimg.com/raw/6dac04176e3f1c33af5f7426619c1987.png)
 12. 请使用 `https://cloud.tencent.com` 进行访问。
+ - 如果浏览器地址栏显示安全锁标识，则说明证书安装成功。如下图所示：
+![](https://qcloudimg.tencent-cloud.cn/raw/45d7e33dd41abb06087edda4871222b5.png)
+ - 如果网站访问异常，可参考以下常见问题解决方案进行处理：
+     - [无法使用 HTTPS 访问网站](https://cloud.tencent.com/document/product/400/53650)
+     - [部署 SSL 证书后，浏览器提示 “网站连接不安全”](https://cloud.tencent.com/document/product/400/56830)
+     - [访问站点提示连接不安全？](https://cloud.tencent.com/document/product/400/5366)
+     - [SSL 证书过期后重新申请部署依然提示 HTTPS 不安全？](https://cloud.tencent.com/document/product/400/65727)
+     - [在服务器上部署 SSL 证书后访问资源出现 404 报错](https://cloud.tencent.com/document/product/400/53651)
 

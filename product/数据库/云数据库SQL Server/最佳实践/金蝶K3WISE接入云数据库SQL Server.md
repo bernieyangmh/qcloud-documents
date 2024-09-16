@@ -1,4 +1,3 @@
-
 本文为您介绍金蝶K/3 WISE 15.0/15.1 如何接入云数据库 SQL Server，实现在 SQL Server 实例和 Windows 云服务器之间执行分布式事务。
 
 解决方案主要分为如下三个步骤：
@@ -7,7 +6,7 @@
 3. 替换账套管理工具，以便兼容云数据库 SQL Server。
 
 >?
->- 由于支持分布式事务配置需要额外资源，故仅支持实例规格在“1核8GB”以上的高可用版实例进行配置，在接入前请完成规格升级。
+>- 由于支持分布式事务配置需要额外资源，故仅支持实例规格在“1核8GB”以上的双节点实例进行配置，在接入前请完成规格升级。
 >- 调整云数据库 SQL Server 访问设置，确保可以执行分布式事务的操作，通过 [提交工单](https://console.cloud.tencent.com/workorder/category) 由腾讯工程师协助处理。提交工单前，请确保完整浏览完本文档，并已完成“迁移数据至云数据库 SQL Server”操作，可提高处理效率。
 
 
@@ -18,7 +17,7 @@
 >?安装金蝶的云服务器须和云数据库 SQL Server 实例在同一个地域，且同一私有网络。
 2. [创建云数据库 SQL Server 实例](https://cloud.tencent.com/document/product/238/36822)。
 3. 上传全量备份文件并完成数据恢复，详细步骤可参见 [上传备份至 COS](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22shangchuan_beifen.22.3E.E4.B8.8A.E4.BC.A0.E5.A4.87.E4.BB.BD.E8.87.B3-cos.3C.2Fa.3E) 和 [通过 COS 源文件迁移数据](https://cloud.tencent.com/document/product/238/19103#.3Ca-id.3D.22qianyi_shuju.22.3E.E9.80.9A.E8.BF.87-cos-.E6.BA.90.E6.96.87.E4.BB.B6.E8.BF.81.E7.A7.BB.E6.95.B0.E6.8D.AE.3C.2Fa.3E)。
-4. 创建云数据库 SQL Server 帐号并授权，可参见 [创建帐号](https://cloud.tencent.com/document/product/238/7521)。
+4. 创建云数据库 SQL Server 账号并授权，可参见 [创建账号](https://cloud.tencent.com/document/product/238/7521)。
 
 ## 步骤二：设置允许执行分布式事务
 ### 设置云数据库 SQL Server
@@ -62,8 +61,5 @@
  
 ## 步骤四：登录使用金蝶K/3 WISE
 全部设置完成后，云服务器 CVM 和云数据库 SQL Server 之间就能够支持分布式事务，您也可以正常登录并使用金蝶K/3 WISE。
-
-若在登入时遇到如下报错信息：
-`中间层创建事务失败，请联系系统管理员，高级显示：错误代码:5(5H)`
-请参考 [金蝶官方文档](https://club.kingdee.com/club/newclub/helpDetail?product_id=3&id=366259) 进行处理。 
+![](https://qcloudimg.tencent-cloud.cn/raw/f0ca655cd2edf451dc17ac875358af06.png)
 

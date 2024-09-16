@@ -2,6 +2,7 @@
 JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见的数据库读写支持。
 
 目前 Oceanus 提供的 `flink-connector-jdbc` Connector 组件已经内置了 MySQL 和 PostgreSQL 的驱动程序。若需要连接 Oracle 等其他的数据库，可通过附加**自定义程序包**的方式，上传相应的 JDBC Driver 的 JAR 包。
+>! CDW PostgreSQL 只能使用 PostgreSQL connector。
 
 ## 版本说明
 
@@ -9,6 +10,7 @@ JDBC Connector 提供了对 MySQL、PostgreSQL、Oracle 等常见的数据库读
 | :-------- | :--- |
 | 1.11      | 支持 |
 | 1.13      | 支持 |
+| 1.14      | 支持 |
 
 ## 使用范围
 JDBC 支持用作数据源表（Source），用于按固定列扫描表和用于 JOIN 的右表（维表）；也支持用作数据目的表（sink），用于 Tuple 数据流表和用于 Upsert 数据流表（需要指定主键）。
@@ -115,6 +117,7 @@ CREATE TABLE `jdbc_upsert_sink_table` (
 | sink.buffer-flush.max-rows | 否   | 100    | 批量输出时，缓存中最多缓存多少数据。如果设置为0，表示禁止输出缓存。 |
 | sink.buffer-flush.interval | 否   | 1s     | 批量输出时，每批次最大的间隔（毫秒）。**如果 `'sink.buffer-flush.max-rows'` 设为 `'0'`，而这个选项不为零，则说明启用纯异步输出功能，即数据输出到算子、从算子最终写入数据库这两部分线程完全解耦。** |
 | sink.max-retries           | 否   | 3      | 数据库写入失败时，最多重试的次数。                           |
+| sink.ignore-delete           | 否   | false      | 是否忽略 delete 操作。         |
 
 ## 代码示例
 
@@ -182,5 +185,5 @@ jdbc:mysql://10.1.28.93:3306/CDB?rewriteBatchedStatements=true
 ```
 - 对于 PostgreSQL，建议在 url 连接参数后加入 reWriteBatchedInserts=true 参数。
 ```
-jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&?currentSchema=数据库的Schema
+jdbc:postgresql://10.1.28.93:3306/PG?reWriteBatchedInserts=true&currentSchema=数据库的Schema
 ```

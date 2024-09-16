@@ -10,8 +10,7 @@ Elasticsearch 提供了功能全面的 RESTful API 与集群交互，详情请�
 在 [集群列表页](https://console.cloud.tencent.com/es)，单击集群 **ID/名称**进入详情页：
 - 对于内网地址，在基础配置中可直接查看。
 - 对于外网地址，出于安全考虑默认是关闭的。对于已开启 [ES 集群用户登录认证](https://cloud.tencent.com/document/product/845/42868) 的集群，支持开启公网地址。开启公网访问可能会为集群引入安全风险，同时也将允许通过 API 直接访问、操作甚至删除在 ElasticSearch 集群中的数据，请谨慎开启。
-
-![基本配置](https://main.qcloudimg.com/raw/be3596330518dad66734369d62501beb.png)
+![](https://qcloudimg.tencent-cloud.cn/raw/b643c9ad6cd0439eda7ac53679bff4c4.png)
 
 ## 测试访问
 可通过 curl 的方式测试访问集群，不支持通过 ping 的方式测试连通性。
@@ -204,8 +203,9 @@ curl -XGET 'http://10.0.0.2:9200/china/_search?pretty' -H 'Content-Type: applica
 
 ### 复杂查询
 模拟 SQL：
-```
+```sql
 select * from china where level.level=2
+/* 如下就是内网curl 的方式来实现上面的sql查询 */
 curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
 {
   "query" : {
@@ -277,8 +277,9 @@ curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: applicati
 
 ### 聚合查询
 模拟 SQL：
-```
+```sql
 select level.level, count(1) from city group by level.level
+/* 如下就是内网curl 的方式来实现上面的sql查询 */
 curl -XGET http://10.0.0.2:9200/china/_search?pretty -H 'Content-Type: application/json' -d'
 {
   "size" : 0,
@@ -356,5 +357,5 @@ curl -XDELETE 'http://10.0.0.2:9200/china/_doc?pretty' -H 'Content-Type: applica
 
 ### 删除索引
 ```
-curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application
+curl -XDELETE 'http://10.0.0.2:9200/china?pretty' -H 'Content-Type: application'
 ```

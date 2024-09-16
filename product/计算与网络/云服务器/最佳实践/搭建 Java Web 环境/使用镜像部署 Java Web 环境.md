@@ -16,7 +16,8 @@
 </dx-alert>
 
 1. 登录 [云服务器控制台](https://console.cloud.tencent.com/cvm/index)，单击实例管理页面的**新建**。
-2. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
+<img style="width:950px; max-width: inherit;" src="https://qcloudimg.tencent-cloud.cn/raw/ecb8c8195f27ee789abc6c1a9ec0e7a7.png" />
+3. 根据页面提示选择机型，并在“镜像”中选择**镜像市场** > **从镜像市场选择**。如下图所示：
 <dx-alert infotype="notice" title="">
 部分境外地域暂不支持通过镜像市场创建云服务器，若您选择的地域下没有**镜像市场**，请选择其他支持镜像市场的地域。
 </dx-alert>
@@ -40,7 +41,7 @@
 1. 在实例的管理页面，找到待验证的云服务器实例，并记录该云服务器实例的公网 IP。如下图所示：
 ![](https://main.qcloudimg.com/raw/0c1b6b9b9070ce3006e5205020825373.png)
 2. 在本地浏览器中访问如下地址，查看环境配置是否成功。
-```
+```shellsession
 http://云服务器实例的公网 IP:8080
 ```
 页面显示如下，则说明环境配置成功。
@@ -50,6 +51,4 @@ http://云服务器实例的公网 IP:8080
 如果您在搭建 Java Web 环境的过程中遇到问题，可参考以下文档进行分析并解决问题：
 - 云服务器的登录问题，可参考 [密码及密钥](https://cloud.tencent.com/document/product/213/18120)、[登录及远程连接](https://cloud.tencent.com/document/product/213/17278)。
 - 云服务器的网络问题，可参考 [IP 地址](https://cloud.tencent.com/document/product/213/17285)、[端口与安全组](https://cloud.tencent.com/document/product/213/2502)。
-
-
 

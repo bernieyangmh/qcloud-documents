@@ -27,8 +27,8 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 ### 准备工作
 
-- 下载并安装 Logstash，参考 [Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
-- 下载并安装 JDK 8，参考 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
+- 下载并安装 Logstash，参见 [Download Logstash](https://www.elastic.co/guide/en/logstash/7.6/installing-logstash.html?spm=a2c4g.11186623.2.10.7d625287CKP6MX)。
+- 下载并安装 JDK 8，参见 [Download JDK 8](https://www.oracle.com/java/technologies/javase/javase-jdk8-downloads.html)。
 - 已 [创建 CKafka 实例](https://cloud.tencent.com/document/product/597/53207)。
 
 ### 步骤1：获取 CKafka 实例接入地址
@@ -46,7 +46,7 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
 
 ### 步骤3：接入 CKafka
 
->?您可以点击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
+>?您可以单击以下页签，查看 CKafka 作为 inputs 或者 outputs 接入的具体步骤。
 
 <dx-tabs>
 :::作为\sinputs\s接入
@@ -90,18 +90,16 @@ Logstash 数据处理可以分为三个阶段：inputs → filters → outputs�
    此处将标准输入作为数据来源，将 Kafka 作为数据目的地。
 
    ```bash
-   input {
-       input {
-         stdin{}
-     }
-   }
-   
-   output {
-      kafka {
-           bootstrap_servers => "xx.xx.xx.xx:xxxx"  // ckafka 实例接入地址
-           topic_id => "logstash_test" // ckafka topic 名称
-          }
-   }
+input {
+      stdin{}
+}
+
+output {
+   kafka {
+        bootstrap_servers => "xx.xx.xx.xx:xxxx"  // ckafka 实例接入地址
+        topic_id => "logstash_test" // ckafka topic 名称
+       }
+}
    ```
 
 3. 执行如下命令启动 Logstash，向创建的 Topic 发送消息。
